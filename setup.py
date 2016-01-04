@@ -27,7 +27,7 @@ setup(name="python-card-me",
       author_email="mail.baxter@gmail.com",
       license="Apache",
       zip_safe=True,
-      url="",
+      url="https://github.com/tBaxter/python-card-me",
       entry_points={
           'console_scripts': [
               'ics_diff = card_me.ics_diff:main',
