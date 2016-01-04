@@ -22,7 +22,7 @@ from setuptools import setup, find_packages
 doclines = __doc__.splitlines()
 
 setup(name="python-card-me",
-      version="0.9.0,
+      version="0.9.0",
       author="Tim Baxter, Jeffrey Harris",
       author_email="mail.baxter@gmail.com",
       license="Apache",
