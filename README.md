@@ -5,7 +5,7 @@ Card Me simplifies the process of parsing and creating iCalendar and vCard objec
 It is a fork of the venerable vobject library, improved, updated, substantially rewritten for Python3 support,
 and with some proper unit tests.
 
-[![Build Status](https://travis-ci.org/tBaxter/vobject.svg?branch=master)](https://travis-ci.org/tBaxter/vobject)
+[![Build Status](https://travis-ci.org/tBaxter/python-card-me.svg?branch=master)](https://travis-ci.org/tBaxter/python-card-me)
 
 --------------
  Installation
