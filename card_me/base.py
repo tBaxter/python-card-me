@@ -1,4 +1,4 @@
-"""vobject module for reading vCard and vCalendar files."""
+"""card_me/vobject module for reading vCard and vCalendar files."""
 
 from __future__ import print_function
 
@@ -1158,4 +1158,3 @@ def newFromBehavior(name, id=None):
 def backslashEscape(s):
     s = s.replace("\\","\\\\").replace(";","\;").replace(",","\,")
     return s.replace("\r\n", "\\n").replace("\n","\\n").replace("\r","\\n")
-

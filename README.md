@@ -1,10 +1,9 @@
-VObject
+Card Me
 =======
 
-VObject simplifies the process of parsing and creating iCalendar and
-vCard objects.
-
-This fork has been substantially rewritten for Python3 support, bug fixes, and to include some proper unit tests.
+Card Me simplifies the process of parsing and creating iCalendar and vCard objects.
+It is a fork of the venerable vobject library, improved, updated, substantially rewritten for Python3 support,
+and with some proper unit tests.
 
 [![Build Status](https://travis-ci.org/tBaxter/vobject.svg?branch=master)](https://travis-ci.org/tBaxter/vobject)
 
@@ -12,10 +11,7 @@ This fork has been substantially rewritten for Python3 support, bug fixes, and t
  Installation
 --------------
 
-To install this fork of vobject, pip install from git: `pip install git+https://github.com/tBaxter/vobject.git`
-
-vobject requires the dateutil 2.0: `pip install dateutil`
-
+Requires dateutil 2.4.0: `pip install dateutil`
 six should also be installed, if it isn't already: `pip install six`
 
 ---------------
@@ -32,8 +28,8 @@ To run unit tests, use `python tests.py` from within the vobject directory.
 Creating iCalendar objects
 ..........................
 
-vobject has a basic datastructure for working with iCalendar-like
-syntaxes.  Additionally, it defines specialized behaviors for many of
+Card Me has a basic datastructure for working with iCalendar-like syntaxes.  
+Additionally, it defines specialized behaviors for many of
 the commonly used iCalendar objects.
 
 To create an object that already has a behavior defined, run:
@@ -52,8 +48,7 @@ Convenience functions exist to create iCalendar and vCard objects:
 >>> card.behavior
 <class 'vobject.vcard.VCard3_0'>
 
-Once you have an object, you can use the add method to create
-children:
+Once you have an object, you can use the add method to create children:
 
 >>> cal.add('vevent')
 <VEVENT| []>
@@ -63,9 +58,8 @@ children:
     VEVENT
        SUMMARY: This is a note
 
-Note that summary is a little different from vevent, it's a
-ContentLine, not a Component.  It can't have children, and it has a
-special value attribute.
+Note that summary is a little different from vevent, it's a ContentLine, not a Component.  
+It can't have children, and it has a special value attribute.
 
 ContentLines can also have parameters.  They can be accessed with
 regular attribute names with _param appended:
@@ -169,8 +163,8 @@ More examples can be found in source code doctests.
 vCards
 ......
 
-Making vCards proceeds in much the same way. Note that the 'N' and 'FN'
-attributes are required.
+Making vCards proceeds in much the same way.
+Note that the 'N' and 'FN' attributes are required.
 
 >>> j = vobject.vCard()
 >>> j.add('n')

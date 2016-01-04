@@ -3,7 +3,7 @@
 import sys
 
 from optparse import OptionParser
-from vobject import icalendar, base
+from . import icalendar, base
 
 try:
     import PyICU
