@@ -11,17 +11,16 @@ import unittest
 from dateutil.tz import tzutc
 from dateutil.rrule import rrule, rruleset, WEEKLY, MONTHLY
 
-from vobject import base
-from vobject import icalendar
+from card_me import base, icalendar
 
-from vobject.base import __behaviorRegistry as behavior_registry
-from vobject.base import ContentLine, parseLine, ParseError
-from vobject.base import readComponents, textLineToContentLine
+from card_me.base import __behaviorRegistry as behavior_registry
+from card_me.base import ContentLine, parseLine, ParseError
+from card_me.base import readComponents, textLineToContentLine
 
-from vobject.change_tz import change_tz
+from card_me.change_tz import change_tz
 
-from vobject.icalendar import MultiDateBehavior, PeriodBehavior, RecurringComponent, utc
-from vobject.icalendar import parseDtstart, stringToTextValues, stringToPeriod, timedeltaToString
+from card_me.icalendar import MultiDateBehavior, PeriodBehavior, RecurringComponent, utc
+from card_me.icalendar import parseDtstart, stringToTextValues, stringToPeriod, timedeltaToString
 
 twoHours  = datetime.timedelta(hours=2)
 
@@ -131,7 +130,7 @@ class TestCalendarSerializing(unittest.TestCase):
         cal = base.newFromBehavior('hcalendar')
         self.assertEqual(
             str(cal.behavior),
-            "<class 'vobject.hcalendar.HCalendar'>"
+            "<class 'card_me.hcalendar.HCalendar'>"
         )
         cal.add('vevent')
         cal.vevent.add('summary').value = "this is a note"
@@ -184,7 +183,7 @@ class TestBehaviors(unittest.TestCase):
         behavior = base.getBehavior('VCALENDAR')
         self.assertEqual(
             str(behavior),
-            "<class 'vobject.icalendar.VCalendar2_0'>"
+            "<class 'card_me.icalendar.VCalendar2_0'>"
         )
         self.assertTrue(behavior.isComponent)
 
