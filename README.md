@@ -18,7 +18,7 @@ six should also be installed, if it isn't already: `pip install six`
  Running tests
 ---------------
 
-To run unit tests, use `python tests.py` from within the vobject directory.
+To run unit tests, use `python tests.py` from within the card_me directory.
 
 
 -------
@@ -28,26 +28,26 @@ To run unit tests, use `python tests.py` from within the vobject directory.
 ### Creating iCalendar objects
 
 
-Card Me has a basic datastructure for working with iCalendar-like syntaxes.  
+Card Me has a basic datastructure for working with iCalendar-like syntaxes.
 Additionally, it defines specialized behaviors for many of
 the commonly used iCalendar objects.
 
 To create an object that already has a behavior defined, run:
 ```
->>> import vobject
->>> cal = vobject.newFromBehavior('vcalendar')
+>>> import card_me
+>>> cal = card_me.newFromBehavior('vcalendar')
 >>> cal.behavior
-<class 'vobject.icalendar.VCalendar2_0'>
+<class 'card_me.icalendar.VCalendar2_0'>
 ```
 
 Convenience functions exist to create iCalendar and vCard objects:
 ```
->>> cal = vobject.iCalendar()
+>>> cal = card_me.iCalendar()
 >>> cal.behavior
-<class 'vobject.icalendar.VCalendar2_0'>
->>> card = vobject.vCard()
+<class 'card_me.icalendar.VCalendar2_0'>
+>>> card = card_me.vCard()
 >>> card.behavior
-<class 'vobject.vcard.VCard3_0'>
+<class 'card_me.vcard.VCard3_0'>
 ```
 Once you have an object, you can use the add method to create children:
 ```
@@ -108,10 +108,10 @@ cal.vevent_list both delete all vevent children:
 <VCALENDAR| []>
 >>> cal.vevent = first_ev
 ```
-vobject understands Python's datetime module and tzinfo classes.
+card_me understands Python's datetime module and tzinfo classes.
 ```
 >>> import datetime
->>> utc = vobject.icalendar.utc
+>>> utc = card_me.icalendar.utc
 >>> start = cal.vevent.add('dtstart')
 >>> start.value = datetime.datetime(2006, 2, 16, tzinfo = utc)
 >>> first_ev.prettyPrint()
@@ -148,14 +148,14 @@ vtimezone would be created for it.
 To parse one top level component from an existing iCalendar stream or
 string, use the readOne function:
 ```
->>> parsedCal = vobject.readOne(icalstream)
+>>> parsedCal = card_me.readOne(icalstream)
 >>> parsedCal.vevent.dtstart.value
 datetime.datetime(2006, 2, 16, 0, 0, tzinfo=tzutc())
 ```
 Similarly, readComponents is a generator yielding one top level
 component at a time from a stream or string.
 ```
->>> vobject.readComponents(icalstream).next().vevent.dtstart.value
+>>> card_me.readComponents(icalstream).next().vevent.dtstart.value
 datetime.datetime(2006, 2, 16, 0, 0, tzinfo=tzutc())
 ```
 More examples can be found in source code doctests.
@@ -166,10 +166,10 @@ More examples can be found in source code doctests.
 Making vCards proceeds in much the same way.
 Note that the 'N' and 'FN' attributes are required.
 ```
->>> j = vobject.vCard()
+>>> j = card_me.vCard()
 >>> j.add('n')
  <N{}    >
->>> j.n.value = vobject.vcard.Name( family='Smith', given='Tom' )
+>>> j.n.value = card_me.vcard.Name( family='Smith', given='Tom' )
 >>> j.add('fn')
  <FN{}>
 >>> j.fn.value ='Tom Smith'
@@ -208,7 +208,7 @@ serializing will add any required computable attributes (like 'VERSION')
 ... N:Smith;Tom;;;
 ... END:VCARD
 ... """
->>> v = vobject.readOne( s )
+>>> v = card_me.readOne( s )
 >>> v.prettyPrint()
  VCARD
     VERSION: 3.0
