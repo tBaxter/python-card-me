@@ -36,7 +36,7 @@ setup(name="python-card-me",
           ]
       },
       include_package_data=True,
-      install_requires=['python-dateutil == 2.4.0'],
+      install_requires=['python-dateutil'],
       platforms=["any"],
       packages=find_packages(),
       description=doclines[0],
