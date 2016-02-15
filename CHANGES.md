@@ -1,5 +1,8 @@
 # Changes
 
+## 0.9.3
+* Removed lock on dateutil version
+
 ## 0.9.2
 * PEP-8 cleanup and integer error fix (thanks pypingou)
 

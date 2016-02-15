@@ -23,7 +23,7 @@ from setuptools import setup, find_packages
 doclines = __doc__.splitlines()
 
 setup(name="python-card-me",
-      version="0.9.2",
+      version="0.9.3",
       author="Tim Baxter, Jeffrey Harris",
       author_email="mail.baxter@gmail.com",
       license="Apache",
@@ -36,7 +36,7 @@ setup(name="python-card-me",
           ]
       },
       include_package_data=True,
-      install_requires=['python-dateutil == 2.4.0'],
+      install_requires=['python-dateutil'],
       platforms=["any"],
       packages=find_packages(),
       description=doclines[0],
