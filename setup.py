@@ -1,7 +1,8 @@
 """
 
 
-Python-Card-Me parses iCalendar and vCard files into Python data structures, decoding the relevant encodings.
+Python-Card-Me parses iCalendar and vCard files into Python data structures,
+decoding the relevant encodings.
 It can also serialize vobject data structures to iCalendar, vCard, or hCalendar unicode strings.
 
 It is a substantially reworked version of Vobject, updated for python3, with other improvements.
@@ -22,7 +23,7 @@ from setuptools import setup, find_packages
 doclines = __doc__.splitlines()
 
 setup(name="python-card-me",
-      version="0.9.1",
+      version="0.9.2",
       author="Tim Baxter, Jeffrey Harris",
       author_email="mail.baxter@gmail.com",
       license="Apache",

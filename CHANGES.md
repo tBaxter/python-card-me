@@ -1,5 +1,8 @@
 # Changes
 
+## 0.9.2
+* PEP-8 cleanup and integer error fix (thanks pypingou)
+
 ## 0.9.1
 * Minor cleanup, formatting, and added this changelog.
 
