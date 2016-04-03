@@ -9,6 +9,7 @@ import socket
 import string
 
 from dateutil import rrule, tz
+from base64 import b64decode, b64encode
 
 from . import behavior
 from .base import (
@@ -599,7 +600,7 @@ class TextBehavior(behavior.Behavior):
         if line.encoded:
             encoding = getattr(line, 'encoding_param', None)
             if encoding and encoding.upper() == cls.base64string:
-                line.value = line.value.decode('base64')
+                line.value = b64decode(line.value)
             else:
                 line.value = stringToTextValues(line.value)[0]
             line.encoded = False
@@ -610,7 +611,7 @@ class TextBehavior(behavior.Behavior):
         if not line.encoded:
             encoding = getattr(line, 'encoding_param', None)
             if encoding and encoding.upper() == cls.base64string:
-                line.value = line.value.encode('base64').replace('\n', '')
+                line.value = b64encode(line.value).decode('utf-8')
             else:
                 line.value = backslashEscape(str_(line.value))
             line.encoded = True
