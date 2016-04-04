@@ -1,5 +1,7 @@
 """Definitions and behavior for vCard 3.0"""
 
+from base64 import b64decode, b64encode
+
 from . import behavior
 
 from .base import ContentLine, registerBehavior, backslashEscape
@@ -126,7 +128,7 @@ class VCardTextBehavior(behavior.Behavior):
                 line.encoding_param = cls.base64string
             encoding = getattr(line, 'encoding_param', None)
             if encoding:
-                line.value = line.value.decode('base64')
+                line.value = b64decode(line.value)
             else:
                 line.value = stringToTextValues(line.value)[0]
             line.encoded=False
@@ -137,7 +139,7 @@ class VCardTextBehavior(behavior.Behavior):
         if not line.encoded:
             encoding = getattr(line, 'encoding_param', None)
             if encoding and encoding.upper() == cls.base64string:
-                line.value = line.value.encode('base64').replace('\n', '')
+                line.value = b64encode(line.value).decode('utf-8')
             else:
                 line.value = backslashEscape(line.value)
             line.encoded=True
