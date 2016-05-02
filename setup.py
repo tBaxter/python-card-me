@@ -20,7 +20,9 @@ For older changes, see
 
 from setuptools import setup, find_packages
 
-doclines = __doc__.splitlines()
+# Docstring may not be present in optimized Python run mode, so if the
+# docstring is missing just use empty strings so install still works
+doclines = (__doc__ or '').splitlines() or ['', '']
 
 setup(name="python-card-me",
       version="0.9.3",
